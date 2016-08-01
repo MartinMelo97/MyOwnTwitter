@@ -1,0 +1,9 @@
+{%extends 'base.html'%}
+
+{%block content%}
+	<h1 style="text-align: center;">{{tweet.username}}</h1>
+	<h3>{{tweet.content}}</p>
+	<span>{{tweet.date}}</span>
+	<a href="{%url 'tweets:list'%}"><h5 style="text-align: center;">Regresar a timeline</h5></a>
+	<hr>
+{%endblock content%}

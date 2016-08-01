@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+
+{%block content%}
+{%for tweet in tweets%}
+	<h3>{{tweet.username}}</h1>
+	<a href="{%url 'tweets:details' tweet.id%}">
+	<p>{{tweet.content}}</p></a>
+	<span>{{tweet.date}}</span>
+	<hr>
+	<br>
+{%endfor%}
+{%endblock content%}
