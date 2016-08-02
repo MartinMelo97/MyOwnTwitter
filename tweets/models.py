@@ -3,10 +3,10 @@ from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
 class Tweet(models.Model):
-	user = models.ForeignKey(User, related_name="tuits")
-	username = models.CharField(max_length=50)
-	content = models.CharField(max_length=140)
-	date = models.DateTimeField(auto_now=True)
+	usuario = models.ForeignKey(User, related_name="tuits")
+	username = models.CharField(max_length=50 )
+	content = models.CharField(max_length=140 )
+	date = models.DateTimeField(auto_now=True, null=True,blank=True)
 
 	class Meta:
 		ordering = ("-date",)

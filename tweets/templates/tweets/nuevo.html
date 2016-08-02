@@ -1,0 +1,30 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+{%if guardado%}
+<center>
+<h1>Tu post ha sido guardado!</h1>
+<a class="waves-effect waves-light btn-large" href="{%url 'tweets:list'%}">Regresar a Twixter</a>
+</center>
+{%else%}
+<center>
+<h1>Escribe tu nuevo Tweet</h1>
+</center>
+<br>
+<br>
+<br>
+<form action="." method="post">
+{%csrf_token%}
+<input type="text" name="username" placeholder="Escribe el titulo del post">
+<textarea name="content" placeholder="Escribe e inspirate"></textarea>
+<center>
+<input type="submit" value="Publicar">
+</center>
+</form>
+{%endif%}
+<br>
+<br>
+<br>
+<br>
+{%endblock content%}
