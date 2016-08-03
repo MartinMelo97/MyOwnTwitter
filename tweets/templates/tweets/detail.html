@@ -2,8 +2,13 @@
 
 {%block content%}
 	<h1 style="text-align: center;">{{tweet.username}}</h1>
-	<h3>{{tweet.content}}</p>
-	<span>{{tweet.date}}</span>
-	<a href="{%url 'tweets:list'%}"><h5 style="text-align: center;">Regresar a timeline</h5></a>
+	<center>
+	<h2><p>{{tweet.content}}</p></h2>
+	<h2><span>{{tweet.date}}</span></h2>
+	<br>
+	</center>
+	<center>
+	<a class="waves-effect waves-light btn-large" href="{%url 'tweets:list'%}">Regresar a Timeline</a>
+	</center>
 	<hr>
 {%endblock content%}
