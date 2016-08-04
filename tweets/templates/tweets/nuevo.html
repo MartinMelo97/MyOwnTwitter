@@ -3,23 +3,30 @@
 {%block content%}
 
 {%if guardado%}
-<center>
-<h1>Tu post ha sido guardado!</h1>
-<a class="waves-effect waves-light btn-large" href="{%url 'tweets:list'%}">Regresar a Twixter</a>
-</center>
+	<center>
+<br>
+<br>
+<br>
+<br>
+<br>
+	<h1>Tu post ha sido guardado!</h1>
+	<a class="waves-effect waves-light btn-large blue lighten-2" href="{%url 'tweets:list'%}">Regresar a Twixter</a>
+<br>
+<br>
+	</center>
 {%else%}
-<center>
-<h1>Escribe tu nuevo Tweet</h1>
-</center>
+	<center>
+		<h1>Escribe tu nuevo Tweet</h1>
+	</center>
 <br>
 <br>
 <br>
 <form action="." method="post">
-{%csrf_token%}
-<input type="text" name="username" placeholder="Escribe el titulo del post">
-<textarea name="content" placeholder="Escribe e inspirate"></textarea>
+	{%csrf_token%}
+	<input type="text" name="username" placeholder="Escribe el titulo del post">
+	<textarea name="content" placeholder="Escribe e inspirate"></textarea>
 <center>
-<input class="waves-effect waves-light btn-large" type="submit" value="Publicar">
+	<input class="waves-effect waves-light btn-large  blue lighten-2" type="submit" value="Publicar">
 </center>
 </form>
 {%endif%}
@@ -27,4 +34,9 @@
 <br>
 <br>
 <br>
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large blue" href="{%url 'tweets:list'%}">
+      <i class=" material-icons">replay</i>
+    </a>
+ </div>
 {%endblock content%}
