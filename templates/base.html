@@ -14,9 +14,16 @@
     <div class="nav-wrapper  blue lighten-2">
       <a href="#" class="brand-logo center">Twixter</a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="{%url 'users:register'%}">Registrarse</a></li>
+      {%if request.user.is_authenticated%}
         <li><a href="{%url 'users:profile'%}">Perfil</a></li>
+        <li><a href="{%url 'users:logout'%}">Cerrar sesión</a></li>
+      {%else%}
+        <li><a href="{%url 'users:register'%}">Registrarse</a></li>
+        <li><a href="{%url 'users:login'%}">Iniciar sesión</a></li>
+      {%endif%}
+        
       </ul>
+      
     </div>
   </nav>
   {%block content%}
