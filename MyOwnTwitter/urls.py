@@ -17,8 +17,10 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from main import urls as UrlsMain
 from tweets import urls as UrlsTweets
+from users import urls as UrlsUsers
 
 urlpatterns = [
+    url(r'^users/', include(UrlsUsers, namespace="users")),
     url(r'^admin/', admin.site.urls),
     url(r'^', include(UrlsMain, namespace="main")),
     url(r'^tweets/', include(UrlsTweets, namespace="tweets"))
