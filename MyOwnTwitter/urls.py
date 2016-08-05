@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
+from django.conf import settings
 from django.contrib import admin
 from main import urls as UrlsMain
 from tweets import urls as UrlsTweets
@@ -23,5 +24,10 @@ urlpatterns = [
     url(r'^users/', include(UrlsUsers, namespace="users")),
     url(r'^admin/', admin.site.urls),
     url(r'^', include(UrlsMain, namespace="main")),
-    url(r'^tweets/', include(UrlsTweets, namespace="tweets"))
+    url(r'^tweets/', include(UrlsTweets, namespace="tweets")),
+    url(
+        regex=r'^media/(?P<path>.*)$',
+        view="django.views.static.serve",
+        kwargs={'document_root':settings.MEDIA_ROOT}
+        ),
 ]

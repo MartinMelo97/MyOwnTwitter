@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+
+{%block content%}
+	<h1>Bienvenido a tu perfil: {{request.user.username}}</h1>
+	<img src="{%if request.user.profile.profile_img%}{{request.user.profile.profile_img.url}}{%endif%}">
+	<form action="." method="post">
+		{%csrf_token%}
+		{{userform.as_p}}
+		{{profileform.as_p}}
+		<input type="submit" value="Actualizar datos">
+	</form>
+{%endblock content%}
